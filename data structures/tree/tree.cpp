@@ -30,3 +30,28 @@ void Node::printInOrder(Node *node, int space, int increment)
 
     printInOrder(node->left, space);
 }
+
+int Node::height(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    return 1 + std::max(height(root->left), height(root->right));
+}
+
+bool Node::isBalanced(Node *root)
+{
+    if (root == NULL)
+    {
+        return true;
+    }
+
+    int r = height(root->right);
+    int l = height(root->left);
+
+    bool isCurrentBalanced = abs(r - l) <= 1;
+
+    return isCurrentBalanced && isBalanced(root->right) && isBalanced(root->left);
+}

@@ -11,7 +11,9 @@ int main()
     root->left->left = new Node(10);
     root->left->left->left = new Node(12);
 
-    node.printInOrder(root);
+    // node.printInOrder(root);
+
+    std::cout << "Height of the tree is: " << node.height(root) << std::endl; // Output: 3
 
     return 0;
 }
